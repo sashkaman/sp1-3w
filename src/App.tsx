@@ -1,6 +1,6 @@
 import './App.css'
-import {useState} from 'react'
-import {TodolistItem} from './TodolistItem'
+import { useState } from 'react'
+import { TodolistItem } from './TodolistItem'
 
 export type Task = {
   id: number
@@ -26,9 +26,7 @@ export const App = () => {
     setTasks(filteredTasks)
   }
 
-  const changeFilter = (filter: FilterValues) => {
-    setFilter(filter)
-  }
+  const changeFilter = (filter: FilterValues) => { setFilter(filter) }
 
   let filteredTasks = tasks
   if (filter === 'active') {
@@ -39,11 +37,13 @@ export const App = () => {
   }
 
   return (
-      <div className="app">
-        <TodolistItem title="What to learn"
-                      tasks={filteredTasks}
-                      deleteTask={deleteTask}
-                      changeFilter={changeFilter}/>
-      </div>
+    <div className="app">
+      <TodolistItem title="What to learn"
+        tasks={filteredTasks}
+        deleteTask={deleteTask}
+        changeFilter={changeFilter} />
+    </div>
   )
 }
+
+
