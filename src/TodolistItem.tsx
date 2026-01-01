@@ -1,6 +1,6 @@
 import type { FilterValues, Task } from './App'
 import { Button } from './Button'
-import { useRef } from 'react'
+// import { useRef } from 'react'
 
 type Props = {
   title: string
@@ -10,28 +10,35 @@ type Props = {
   createTask: (title: string) => void
 }
 
-export const TodolistItem = ({ title, tasks, deleteTask, changeFilter, createTask }: Props) => {
+export const TodolistItem = ({
+  title,
+  tasks,
+  deleteTask,
+  changeFilter,
+  createTask }: Props) => {
 
-  const [taskTitle, setTaskTitle] = useState('')
+  // const [taskTitle, setTaskTitle] = useState('')
 
-  const inputRef = useRef<HTMLInputElement>(null)
+  // const inputRef = useRef<HTMLInputElement>(null)
 
   return (
     <div>
       <h3>{title}</h3>
 
       <div>
-        {/* <input ref={inputRef} />
+        {/* <input ref={inputRef} />cs */}
 
-        <Button title={'+'} onClick={() => {
+        {/* <Button title={'+'} onClick={() => {
           if (inputRef.current) {
             createTask(inputRef.current.value)
             inputRef.current.value = ''
           }
         }} /> */}
 
-        <input value={taskTitle} />
-        <Button title={'+'} onClick={() => { }} />
+        {/* <input value={taskTitle} /> */}
+        {/* <Button title={'+'} onClick={() => { }} /> */}
+        <input />
+        <Button title={'+'} onClick={createTask} />
       </div>
 
       {tasks.length === 0 ? (
@@ -42,7 +49,7 @@ export const TodolistItem = ({ title, tasks, deleteTask, changeFilter, createTas
             return (
               <li key={task.id}>
                 <input type="checkbox" checked={task.isDone} />
-                <span>{task.title}</span>
+                <span>{task.title}</span>c
                 <Button title={'x'} onClick={() => deleteTask(task.id)} />
               </li>
             )
