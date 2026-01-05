@@ -16,9 +16,7 @@ export const TodolistItem = ({
   deleteTask,
   changeFilter,
   createTask }: Props) => {
-
   const inputRef = useRef<HTMLInputElement>(null)
-
   return (
     <div>
       <h3>{title}</h3>
@@ -31,7 +29,6 @@ export const TodolistItem = ({
           }
         }} />
       </div>
-
       {tasks.length === 0 ? (
         <p>Тасок нет</p>
       ) : (
@@ -47,7 +44,6 @@ export const TodolistItem = ({
           })}
         </ul>
       )}
-
       <div>
         <Button title={'All'} onClick={() => changeFilter('all')} />
         <Button title={'Active'} onClick={() => changeFilter('active')} />
