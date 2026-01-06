@@ -19,6 +19,12 @@ export const TodolistItem = ({
   createTask }: Props) => {
   const [taskTitle, setTaskTitle] = useState('')
   // const inputRef = useRef<HTMLInputElement>(null)
+
+  const createTaskHandler = () => {
+    createTask(taskTitle)
+    setTaskTitle('')
+  }
+
   return (
     <div>
       <h3>{title}</h3>
@@ -32,13 +38,7 @@ export const TodolistItem = ({
           }
         }} /> */}
         <input value={taskTitle} onChange={event => setTaskTitle(event.currentTarget.value)} />
-        <Button title={'+'} onClick={() => {
-          createTask(taskTitle)
-          setTaskTitle('')
-        }} />
-
-
-
+        <Button title={'+'} onClick={createTaskHandler} />
       </div>
       {tasks.length === 0 ? (
         <p>Тасок нет</p>
