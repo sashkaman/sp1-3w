@@ -32,7 +32,13 @@ export const TodolistItem = ({
           }
         }} /> */}
         <input value={taskTitle} onChange={event => setTaskTitle(event.currentTarget.value)} />
-        <Button title={'+'} onClick={() => createTask(taskTitle)} />
+        <Button title={'+'} onClick={() => {
+          createTask(taskTitle)
+          setTaskTitle('')
+        }} />
+
+
+
       </div>
       {tasks.length === 0 ? (
         <p>Тасок нет</p>
@@ -54,7 +60,6 @@ export const TodolistItem = ({
         <Button title={'Active'} onClick={() => changeFilter('active')} />
         <Button title={'Completed'} onClick={() => changeFilter('completed')} />
       </div>
-
     </div>
   )
 }
