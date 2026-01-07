@@ -52,11 +52,16 @@ export const TodolistItem = ({
       ) : (
         <ul>
           {tasks.map(task => {
+
+            const deleteTaskHandler = () => {
+              deleteTask(task.id)
+            }
+
             return (
               <li key={task.id}>
                 <input type="checkbox" checked={task.isDone} />
                 <span>{task.title}</span>c
-                <Button title={'x'} onClick={() => deleteTask(task.id)} />
+                <Button title={'x'} onClick={deleteTaskHandler} />
               </li>
             )
           })}
