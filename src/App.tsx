@@ -11,6 +11,7 @@ export type Task = {
 export type FilterValues = 'all' | 'active' | 'completed'
 export const App = () => {
   const [filter, setFilter] = useState<FilterValues>('all')
+  const changeFilter = (filter: FilterValues) => { setFilter(filter) }
   const [tasks, setTasks] = useState<Task[]>([
     { id: v1(), title: 'HTML&CSS', isDone: true },
     { id: v1(), title: 'JS', isDone: true },
@@ -21,19 +22,18 @@ export const App = () => {
     const newTasks = [newTask, ...tasks]
     setTasks(newTasks)
   }
-  const deleteTask = (taskId: string) => {
-    const filteredTasks = tasks.filter(task => {
-      return task.id !== taskId
-    })
-    setTasks(filteredTasks)
-  }
-  const changeFilter = (filter: FilterValues) => { setFilter(filter) }
   let filteredTasks = tasks
   if (filter === 'active') {
     filteredTasks = tasks.filter(task => !task.isDone)
   }
   if (filter === 'completed') {
     filteredTasks = tasks.filter(task => task.isDone)
+  }
+  const deleteTask = (taskId: string) => {
+    const filteredTasks = tasks.filter(task => {
+      return task.id !== taskId
+    })
+    setTasks(filteredTasks)
   }
   return (
     <div className="app">
