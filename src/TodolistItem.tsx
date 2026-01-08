@@ -45,33 +45,41 @@ export const TodolistItem = ({
         < Button
           title={'add'}
           onClick={createTaskHandler}
+          disabled={!taskTitle || taskTitle.length > 10}
         />
       </div>
-      {tasks.length === 0 ? (
-        <p>Тасок нет</p>
-      ) : (
-        <ul>
-          {tasks.map(task => {
 
-            const deleteTaskHandler = () => {
-              deleteTask(task.id)
-            }
+      {!taskTitle && <div>Max title lenght is 10 charters</div>}
+      {taskTitle && taskTitle.length <= 10 && <div>Your title lenght is {taskTitle.length} charters</div>}
 
-            return (
-              <li key={task.id}>
-                <input type="checkbox" checked={task.isDone} />
-                <span>{task.title}</span>c
-                <Button title={'x'} onClick={deleteTaskHandler} />
-              </li>
-            )
-          })}
-        </ul>
-      )}
+      {
+        tasks.length === 0 ? (
+          <p>Тасок нет</p>
+        ) : (
+          <ul>
+            {tasks.map(task => {
+
+              const deleteTaskHandler = () => {
+                deleteTask(task.id)
+              }
+
+              return (
+                <li key={task.id}>
+                  <input type="checkbox" checked={task.isDone} />
+                  <span>{task.title}</span>c
+                  <Button title={'x'} onClick={deleteTaskHandler} />
+                </li>
+              )
+            })}
+          </ul>
+        )
+      }
+
       <div>
         <Button title={'All'} onClick={() => changeFilter('all')} />
         <Button title={'Active'} onClick={() => changeFilter('active')} />
         <Button title={'Completed'} onClick={() => changeFilter('completed')} />
       </div>
-    </div>
+    </div >
   )
 }
