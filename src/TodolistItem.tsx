@@ -30,11 +30,11 @@ export const TodolistItem = ({
       <h3>{title}</h3>
 
       <div>
-        {/* <input ref={inputRef} />
+      {/* <input ref={inputRef} />
         <Button title={'+'} onClick={() => {
-          if (inputRef.current) {t.value)
-            inputRef.current.value = 
-            createTask(inputRef.curren''
+          if (inputRef.current) {
+            createTask(inputRef.current.value)
+            inputRef.current.value = ''
           }
         }} /> */}
         <input
